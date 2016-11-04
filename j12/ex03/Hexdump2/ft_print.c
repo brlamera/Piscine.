@@ -1,0 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blameran <blameran@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/03/26 14:10:30 by blameran          #+#    #+#             */
+/*   Updated: 2016/03/26 18:30:34 by blameran         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "header.h"
+
+int		ft_print(t_buffer_list *begin_list, char **av)
+{
+	int hex;
+
+	hex = 0;
+	while (begin_list != NULL)
+	{
+		if (begin_list->error == 2)
+			write(begin_list->error, begin_list->hex_buffer, begin_list->ret);
+		else
+		{
+			if (begin_list->error == 3)
+				ft_putstr(begin_list->hex_buffer);
+			else
+			{
+				ft_print_hexcount(hex, av[1]);
+				ft_print_hex_buffer(begin_list->hex_buffer);
+				ft_print_space(begin_list);
+				ft_putchar('\n');
+			}
+			hex += begin_list->ret;
+		}
+		begin_list = begin_list->next;
+	}
+	return (hex);
+}
+
+void	ft_print_hex_buffer(char *hex_buffer)
+{
+	int i;
+
+	i = 0;
+	ft_putstr(" ");
+	while (hex_buffer[i])
+	{
+		ft_putstr(ft_itoa_base(hex_buffer[i], 16));
+		if (i != 15)
+			ft_putchar(' ');
+		i++;
+	}
+}

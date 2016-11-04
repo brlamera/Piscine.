@@ -1,0 +1,7 @@
+Credentials cache: API:D62536CF-1E3B-4A8C-AE57-AAC8EEEC8BC1
+        Principal: blameran@42.FR
+
+  Issued                Expires               Principal
+Oct 14 16:43:54 2015  Oct 21 16:43:54 2015  krbtgt/42.FR@42.FR
+Oct 14 16:50:02 2015  Oct 21 16:43:54 2015  host/vogsphere-frontend-normal-1.42.fr@42.FR
+Oct 14 18:23:46 2015  Oct 21 16:43:54 2015  ldap/ldap-proxy.42.fr@42.FR
